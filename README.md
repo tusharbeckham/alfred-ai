@@ -1,15 +1,20 @@
 <div align="center">
 
-# 🧠 Alfred
+# ⚡ Alfred
 
-**A hardened, memory-augmented AI assistant — deployed serverless on the edge.**
-The public interface of a multi-agent, DAG-orchestrated AI system.
+### A hardened, memory-augmented AI assistant — live on the edge.
+
+*The public face of a multi-agent, DAG-orchestrated AI system.*
+
+[![Live Demo](https://img.shields.io/badge/⚡_Live_Demo-Talk_to_Alfred-2563eb?style=for-the-badge&logo=cloudflare&logoColor=white)](https://alfred.tusharentheoria.workers.dev)
 
 ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-2563eb?style=flat-square)
 ![Status](https://img.shields.io/badge/status-live-brightgreen?style=flat-square)
+
+**Built by [Tushar](https://github.com/tusharbeckham)**
 
 </div>
 
@@ -22,7 +27,7 @@ It is the deployed front end of a larger **multi-agent orchestration system**, o
 ## ✨ Features
 
 - **⚡ Edge-native + streaming** — served from Cloudflare Workers; token-by-token streaming for instant replies.
-- **🧠 "Megamind" — memory + knowledge**
+- **💾 "Megamind" — memory + knowledge**
   - **Conversation memory** — per-visitor history persisted in Cloudflare **KV** and restored across sessions.
   - **Knowledge base (RAG)** — facts embedded into Cloudflare **Vectorize**; the assistant retrieves the most relevant ones and grounds its answers in them.
 - **🛡️ Abuse-resistant by design** — per-sender token-bucket rate limiting, flood/duplicate detection, and automatic temporary bans, all in-worker. Stress-tested to hundreds of thousands of requests/second with the spammer auto-banned.

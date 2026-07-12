@@ -1,0 +1,23 @@
+name = "alfred"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Cloudflare Workers AI — free fallback LLM. Add this binding to the Worker.
+[ai]
+binding = "AI"
+
+# Conversation memory (KV). Create: npx wrangler kv namespace create MEMORY
+# [[kv_namespaces]]
+# binding = "MEMORY"
+# id = "PASTE_THE_ID_WRANGLER_PRINTS"
+
+# Knowledge base (Vectorize, 768-dim). Create:
+#   npx wrangler vectorize create alfred-kb --dimensions=768 --metric=cosine
+# [[vectorize]]
+# binding = "VEC"
+# index_name = "alfred-kb"
+
+# Secrets (set via CLI, never commit them):
+#   npx wrangler secret put LLM_API_KEY   # your OpenAI-compatible provider key (optional)
+#   npx wrangler secret put ADMIN_KEY     # protects the /api/learn endpoint
+# Optional vars: LLM_BASE_URL, LLM_MODEL, CF_MODEL

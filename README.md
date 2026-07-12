@@ -9,6 +9,8 @@
 
 **Designed and built by Tushar**
 
+[![Alfred in action](assets/demo.gif)](https://alfred.tusharentheoria.workers.dev)
+
 </div>
 
 ---

@@ -199,23 +199,37 @@ const HTML = `<!doctype html>
 *{box-sizing:border-box}html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;height:100dvh;overflow-x:hidden;transition:color .45s ease}
 body,header,#bar,#form,.iconbtn,.you .b,.alfred .b pre,.alfred .b code,.modal,.social a,.mclose{transition:background-color .45s ease,border-color .45s ease,color .45s ease,box-shadow .3s ease}
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(1100px 520px at 50% -12%,var(--bg2),var(--bg))}
-.bg::before,.bg::after,.bg i{content:"";position:absolute;border-radius:50%;filter:blur(64px);will-change:transform}
-.bg::before{width:58vmax;height:58vmax;background:radial-gradient(circle,var(--au1),transparent 62%);top:-22vmax;left:-12vmax;animation:d1 22s ease-in-out infinite alternate}
-.bg::after{width:54vmax;height:54vmax;background:radial-gradient(circle,var(--au2),transparent 62%);bottom:-24vmax;right:-14vmax;animation:d2 27s ease-in-out infinite alternate}
-.bg i{display:block;width:42vmax;height:42vmax;background:radial-gradient(circle,var(--au3),transparent 62%);top:26%;left:42%;animation:d3 31s ease-in-out infinite alternate}
-@keyframes d1{to{transform:translate(13vmax,10vmax) scale(1.15)}}
-@keyframes d2{to{transform:translate(-12vmax,-9vmax) scale(1.12)}}
-@keyframes d3{to{transform:translate(-9vmax,9vmax) scale(1.22)}}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(1200px 560px at 50% -12%,var(--bg2),var(--bg))}
+.bg::before,.bg::after,.bg i{content:"";position:absolute;border-radius:50%;filter:blur(60px);will-change:transform}
+.bg::before{width:60vmax;height:60vmax;background:radial-gradient(circle,var(--au1),transparent 60%);top:-24vmax;left:-14vmax;animation:d1 18s ease-in-out infinite alternate}
+.bg::after{width:56vmax;height:56vmax;background:radial-gradient(circle,var(--au2),transparent 60%);bottom:-26vmax;right:-16vmax;animation:d2 21s ease-in-out infinite alternate}
+.bg i{display:block;width:46vmax;height:46vmax;background:radial-gradient(circle,var(--au3),transparent 60%);top:22%;left:40%;animation:d3 25s ease-in-out infinite alternate}
+@keyframes d1{0%{transform:translate(0,0) scale(1) rotate(0)}100%{transform:translate(18vmax,14vmax) scale(1.25) rotate(45deg)}}
+@keyframes d2{0%{transform:translate(0,0) scale(1) rotate(0)}100%{transform:translate(-16vmax,-12vmax) scale(1.2) rotate(-35deg)}}
+@keyframes d3{0%{transform:translate(0,0) scale(1) rotate(0)}100%{transform:translate(-14vmax,12vmax) scale(1.3) rotate(30deg)}}
+.bg b{position:absolute;bottom:-8px;border-radius:50%;background:var(--accent);opacity:0;box-shadow:0 0 10px var(--accent);animation:floatUp linear infinite}
+.bg b:nth-of-type(1){left:8%;width:5px;height:5px;animation-duration:15s;animation-delay:0s}
+.bg b:nth-of-type(2){left:18%;width:8px;height:8px;animation-duration:20s;animation-delay:2s}
+.bg b:nth-of-type(3){left:27%;width:4px;height:4px;animation-duration:13s;animation-delay:5s}
+.bg b:nth-of-type(4){left:37%;width:6px;height:6px;animation-duration:18s;animation-delay:1s}
+.bg b:nth-of-type(5){left:47%;width:9px;height:9px;animation-duration:23s;animation-delay:4s}
+.bg b:nth-of-type(6){left:57%;width:5px;height:5px;animation-duration:16s;animation-delay:7s}
+.bg b:nth-of-type(7){left:67%;width:7px;height:7px;animation-duration:19s;animation-delay:2s}
+.bg b:nth-of-type(8){left:77%;width:4px;height:4px;animation-duration:14s;animation-delay:6s}
+.bg b:nth-of-type(9){left:87%;width:6px;height:6px;animation-duration:22s;animation-delay:9s}
+.bg b:nth-of-type(10){left:13%;width:5px;height:5px;animation-duration:17s;animation-delay:10s}
+.bg b:nth-of-type(11){left:63%;width:8px;height:8px;animation-duration:24s;animation-delay:11s}
+.bg b:nth-of-type(12){left:33%;width:5px;height:5px;animation-duration:15s;animation-delay:13s}
+@keyframes floatUp{0%{transform:translateY(0) translateX(0);opacity:0}12%{opacity:.6}50%{transform:translateY(-52vh) translateX(2vw)}88%{opacity:.45}100%{transform:translateY(-104vh) translateX(-2vw);opacity:0}}
 header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 22px;z-index:5;gap:12px}
 .hleft{display:flex;align-items:center;gap:12px}
 .brand{font-size:22px;font-weight:800;letter-spacing:.3px;background:linear-gradient(100deg,var(--accent),var(--accent2) 42%,#8b5cf6 70%,var(--accent));background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 7s linear infinite;user-select:none}
 [data-theme=dark] .brand{background:linear-gradient(100deg,var(--accent),var(--accent2) 42%,#ec4899 70%,var(--accent));background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @keyframes shine{to{background-position:220% center}}
-.iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--text);width:40px;height:40px;flex:none;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(30,30,60,.10);transition:transform .2s cubic-bezier(.34,1.56,.64,1),border-color .2s,background-color .45s,box-shadow .25s}
-.iconbtn:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 7px 20px var(--glow)}
-.iconbtn:active{transform:translateY(0) scale(.93)}
-.iconbtn svg{width:19px;height:19px}
+.iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--text);width:42px;height:42px;flex:none;border-radius:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(20,20,50,.12),inset 0 1px 0 rgba(255,255,255,.07);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .22s cubic-bezier(.34,1.56,.64,1),border-color .2s,box-shadow .25s,background-color .45s}
+.iconbtn:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 10px 26px var(--glow),inset 0 1px 0 rgba(255,255,255,.12)}
+.iconbtn:active{transform:translateY(0) scale(.92)}
+.iconbtn svg{width:20px;height:20px;display:block}
 .about-btn svg{color:var(--accent)}
 #theme svg{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
 #theme:hover svg{transform:rotate(40deg) scale(1.08)}
@@ -272,17 +286,17 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
 .social svg{width:22px;height:22px;fill:currentColor}
 .mclose{margin-top:20px;width:100%;border:1px solid var(--line);background:transparent;color:var(--muted);padding:11px;border-radius:12px;cursor:pointer;font-size:13px;font-weight:600}
 .mclose:hover{border-color:var(--accent);color:var(--text)}
-@media(prefers-reduced-motion:reduce){.bg::before,.bg::after,.bg i,.brand{animation:none}}
+@media(prefers-reduced-motion:reduce){.bg::before,.bg::after,.bg i,.bg b,.brand{animation:none}}
 @media(max-width:600px){#hero h1{font-size:28px}#wrap,#bar{padding-left:14px;padding-right:14px}header{padding:12px 15px}#hint{font-size:10px;padding:0 8px}.brand{font-size:20px}.iconbtn{width:38px;height:38px}.modal{padding:22px}}
 </style></head>
 <body>
-<div class="bg"><i></i></div>
+<div class="bg"><i></i><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
 <header>
   <div class="hleft">
-    <button id="about" class="iconbtn about-btn" title="About the creator" aria-label="About the creator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>
+    <button id="about" class="iconbtn about-btn" title="About the creator" aria-label="About the creator"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4Zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4Z"/></svg></button>
     <div class="brand">Alfred</div>
   </div>
-  <button id="theme" class="iconbtn" title="Toggle light / dark" aria-label="Toggle theme"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.1 5.1l1.4 1.4M17.5 17.5l1.4 1.4M18.9 5.1l-1.4 1.4M6.5 17.5l-1.4 1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  <button id="theme" class="iconbtn" title="Toggle light / dark" aria-label="Toggle theme"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg><svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 14.1A8.5 8.5 0 0 1 9.9 2.5 8.5 8.5 0 1 0 21.5 14.1Z"/></svg></button>
 </header>
 <div id="main"><div id="wrap">
   <div id="hero"><h1 id="greet">Good day.</h1><p>How can I help you today?</p></div>

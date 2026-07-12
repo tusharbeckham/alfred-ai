@@ -243,8 +243,9 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
 #form{max-width:740px;margin:0 auto;display:flex;gap:8px;align-items:flex-end;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:8px 8px 8px 18px;box-shadow:0 8px 30px rgba(20,20,50,.06);transition:border-color .18s,box-shadow .18s}
 #form:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px var(--glow)}
 #i{flex:1;border:0;outline:0;background:transparent;color:var(--text);font-size:15.5px;resize:none;max-height:170px;line-height:1.5;padding:9px 0;font-family:inherit}
-#send{border:0;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;width:38px;height:38px;font-size:19px;cursor:pointer;flex:none;transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;box-shadow:0 5px 16px var(--glow)}
-#send:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 8px 22px var(--glow)}#send:active{transform:scale(.94)}#send:disabled{opacity:.4;cursor:default;box-shadow:none;transform:none}
+#send{border:0;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;width:38px;height:38px;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center;transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;box-shadow:0 5px 16px var(--glow)}
+#send:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 8px 22px var(--glow)}#send:active{transform:scale(.92)}#send:disabled{opacity:.4;cursor:default;box-shadow:none;transform:none}
+#send svg{width:18px;height:18px;display:block}
 #hint{max-width:740px;margin:8px auto 0;text-align:center;color:var(--muted);font-size:11px}
 .overlay{position:fixed;inset:0;background:rgba(8,10,20,.5);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);opacity:0;pointer-events:none;transition:opacity .3s ease;z-index:20;display:flex;align-items:center;justify-content:center;padding:20px}
 .overlay.on{opacity:1;pointer-events:auto}
@@ -281,7 +282,7 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
   <div id="log"></div>
 </div></div>
 <div id="bar">
-  <form id="form"><textarea id="i" rows="1" placeholder="Message Alfred..." autocomplete="off"></textarea><button id="send" type="submit" title="Send">&#8593;</button></form>
+  <form id="form"><textarea id="i" rows="1" placeholder="Message Alfred..." autocomplete="off"></textarea><button id="send" type="submit" title="Send" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M6 12l6-6 6 6"/></svg></button></form>
   <div id="hint">Alfred is sharp, but can be wrong. Don't share anything sensitive.</div>
 </div>
 <div class="overlay" id="ov">

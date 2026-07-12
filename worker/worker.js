@@ -228,10 +228,13 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
 .brand{font-size:22px;font-weight:800;letter-spacing:.3px;background:linear-gradient(100deg,var(--accent),var(--accent2) 42%,#8b5cf6 70%,var(--accent));background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 7s linear infinite;user-select:none}
 [data-theme=dark] .brand{background:linear-gradient(100deg,var(--accent),var(--accent2) 42%,#ec4899 70%,var(--accent));background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @keyframes shine{to{background-position:220% center}}
-.iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--text);width:42px;height:42px;flex:none;border-radius:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(20,20,50,.12),inset 0 1px 0 rgba(255,255,255,.07);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:border-color .2s ease,background-color .45s ease,color .45s ease}
-.iconbtn:hover{border-color:var(--accent)}
+.iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--text);width:42px;height:42px;flex:none;border-radius:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(20,20,50,.12),inset 0 1px 0 rgba(255,255,255,.07);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .22s cubic-bezier(.34,1.56,.64,1),border-color .2s,background-color .45s}
+.iconbtn:hover{border-color:var(--accent);transform:translateY(-2px)}
+.iconbtn:active{transform:translateY(0) scale(.92)}
 .iconbtn svg{width:20px;height:20px;display:block}
 .about-btn svg{color:var(--accent)}
+#theme svg{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+#theme:hover svg{transform:rotate(40deg) scale(1.08)}
 [data-theme=dark] #theme .sun{display:none}
 [data-theme=light] #theme .moon{display:none}
 #main{flex:1;overflow-y:auto}

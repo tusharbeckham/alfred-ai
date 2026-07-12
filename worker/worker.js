@@ -185,7 +185,7 @@ const HTML = `<!doctype html>
 <html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>(function(){try{var t=localStorage.getItem('alfred-theme')||((window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <title>Alfred</title>
-<meta name="description" content="Alfred — a sharp, witty AI assistant. Ask him anything.">
+<meta name="description" content="Alfred, a sharp, witty AI assistant. Ask him anything.">
 <meta property="og:title" content="Alfred">
 <meta property="og:description" content="A sharp, witty AI assistant. Ask him anything.">
 <meta property="og:type" content="website">
@@ -200,13 +200,15 @@ const HTML = `<!doctype html>
 body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;height:100dvh;overflow-x:hidden;transition:color .45s ease}
 body,header,#bar,#form,.iconbtn,.you .b,.alfred .b pre,.alfred .b code,.modal,.social a,.mclose{transition:background-color .45s ease,border-color .45s ease,color .45s ease,box-shadow .3s ease}
 .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(1200px 560px at 50% -12%,var(--bg2),var(--bg))}
-.bg::before,.bg::after,.bg i{content:"";position:absolute;border-radius:50%;filter:blur(60px);will-change:transform}
+.bg::before,.bg::after,.bg i,.bg u{content:"";position:absolute;border-radius:50%;filter:blur(60px);will-change:transform}
 .bg::before{width:60vmax;height:60vmax;background:radial-gradient(circle,var(--au1),transparent 60%);top:-24vmax;left:-14vmax;animation:d1 18s ease-in-out infinite alternate}
 .bg::after{width:56vmax;height:56vmax;background:radial-gradient(circle,var(--au2),transparent 60%);bottom:-26vmax;right:-16vmax;animation:d2 21s ease-in-out infinite alternate}
 .bg i{display:block;width:46vmax;height:46vmax;background:radial-gradient(circle,var(--au3),transparent 60%);top:22%;left:40%;animation:d3 25s ease-in-out infinite alternate}
+.bg u{display:block;width:40vmax;height:40vmax;background:radial-gradient(circle,var(--au1),transparent 60%);top:52%;left:-6vmax;animation:d4 29s ease-in-out infinite alternate}
 @keyframes d1{0%{transform:translate(0,0) scale(1) rotate(0)}100%{transform:translate(18vmax,14vmax) scale(1.25) rotate(45deg)}}
 @keyframes d2{0%{transform:translate(0,0) scale(1) rotate(0)}100%{transform:translate(-16vmax,-12vmax) scale(1.2) rotate(-35deg)}}
 @keyframes d3{0%{transform:translate(0,0) scale(1) rotate(0)}100%{transform:translate(-14vmax,12vmax) scale(1.3) rotate(30deg)}}
+@keyframes d4{0%{transform:translate(0,0) scale(.9) rotate(0)}100%{transform:translate(16vmax,-10vmax) scale(1.2) rotate(-40deg)}}
 .bg b{position:absolute;bottom:-8px;border-radius:50%;background:var(--accent);opacity:0;box-shadow:0 0 10px var(--accent);animation:floatUp linear infinite}
 .bg b:nth-of-type(1){left:8%;width:5px;height:5px;animation-duration:15s;animation-delay:0s}
 .bg b:nth-of-type(2){left:18%;width:8px;height:8px;animation-duration:20s;animation-delay:2s}
@@ -226,13 +228,10 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
 .brand{font-size:22px;font-weight:800;letter-spacing:.3px;background:linear-gradient(100deg,var(--accent),var(--accent2) 42%,#8b5cf6 70%,var(--accent));background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 7s linear infinite;user-select:none}
 [data-theme=dark] .brand{background:linear-gradient(100deg,var(--accent),var(--accent2) 42%,#ec4899 70%,var(--accent));background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @keyframes shine{to{background-position:220% center}}
-.iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--text);width:42px;height:42px;flex:none;border-radius:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(20,20,50,.12),inset 0 1px 0 rgba(255,255,255,.07);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .22s cubic-bezier(.34,1.56,.64,1),border-color .2s,box-shadow .25s,background-color .45s}
-.iconbtn:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 10px 26px var(--glow),inset 0 1px 0 rgba(255,255,255,.12)}
-.iconbtn:active{transform:translateY(0) scale(.92)}
+.iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--text);width:42px;height:42px;flex:none;border-radius:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(20,20,50,.12),inset 0 1px 0 rgba(255,255,255,.07);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:border-color .2s ease,background-color .45s ease,color .45s ease}
+.iconbtn:hover{border-color:var(--accent)}
 .iconbtn svg{width:20px;height:20px;display:block}
 .about-btn svg{color:var(--accent)}
-#theme svg{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
-#theme:hover svg{transform:rotate(40deg) scale(1.08)}
 [data-theme=dark] #theme .sun{display:none}
 [data-theme=light] #theme .moon{display:none}
 #main{flex:1;overflow-y:auto}
@@ -286,11 +285,11 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
 .social svg{width:22px;height:22px;fill:currentColor}
 .mclose{margin-top:20px;width:100%;border:1px solid var(--line);background:transparent;color:var(--muted);padding:11px;border-radius:12px;cursor:pointer;font-size:13px;font-weight:600}
 .mclose:hover{border-color:var(--accent);color:var(--text)}
-@media(prefers-reduced-motion:reduce){.bg::before,.bg::after,.bg i,.bg b,.brand{animation:none}}
+@media(prefers-reduced-motion:reduce){.bg::before,.bg::after,.bg i,.bg u,.bg b,.brand{animation:none}}
 @media(max-width:600px){#hero h1{font-size:28px}#wrap,#bar{padding-left:14px;padding-right:14px}header{padding:12px 15px}#hint{font-size:10px;padding:0 8px}.brand{font-size:20px}.iconbtn{width:38px;height:38px}.modal{padding:22px}}
 </style></head>
 <body>
-<div class="bg"><i></i><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+<div class="bg"><i></i><u></u><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
 <header>
   <div class="hleft">
     <button id="about" class="iconbtn about-btn" title="About the creator" aria-label="About the creator"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4Zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4Z"/></svg></button>
@@ -299,7 +298,7 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
   <button id="theme" class="iconbtn" title="Toggle light / dark" aria-label="Toggle theme"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg><svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 14.1A8.5 8.5 0 0 1 9.9 2.5 8.5 8.5 0 1 0 21.5 14.1Z"/></svg></button>
 </header>
 <div id="main"><div id="wrap">
-  <div id="hero"><h1 id="greet">Good day.</h1><p>How can I help you today?</p></div>
+  <div id="hero"><h1 id="greet">Hello</h1><p>What are we building today?</p></div>
   <div id="log"></div>
 </div></div>
 <div id="bar">
@@ -308,12 +307,12 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
 </div>
 <div class="overlay" id="ov">
   <div class="modal" role="dialog" aria-modal="true" aria-label="About the creator">
-    <div class="mhead"><div class="mavatar">T</div><div><h2>Tushar</h2><div class="role">Aspiring AI / ML Engineer</div></div></div>
-    <p class="mbio">Full-stack developer building at the intersection of mobile, AI, and science &mdash; from production Android apps to multi-agent AI systems and physics-informed machine learning.</p>
+    <div class="mhead"><div class="mavatar">T</div><div><h2>Tushar</h2><div class="role">Full-Stack Developer &amp; Aspiring AI-for-Science Engineer</div></div></div>
+    <p class="mbio">Bridging Mobile Development and Scientific Machine Learning, with a growing focus on renewable energy and climate tech.</p>
     <div class="mlabel">Projects</div>
-    <a class="proj" href="https://github.com/tusharbeckham/alfred-ai" target="_blank" rel="noopener"><b>Alfred &mdash; Multi-Agent DAG + RAG</b><span>A memory-augmented AI assistant deployed on the edge &mdash; the public face of a multi-agent, DAG-orchestrated system with a RAG knowledge base.</span></a>
-    <a class="proj" href="https://github.com/tusharbeckham/euexia-react" target="_blank" rel="noopener"><b>Euexia</b><span>A production-grade Android health tracker &mdash; React + Capacitor with a native background step-counter and cloud sync.</span></a>
-    <a class="proj" href="https://github.com/tusharbeckham/solar-forecast" target="_blank" rel="noopener"><b>PhysSolar</b><span>Physics-informed ML for solar-power forecasting &mdash; a clear-sky physical model corrected by a gradient-boosting residual.</span></a>
+    <a class="proj" href="https://github.com/tusharbeckham/alfred-ai" target="_blank" rel="noopener"><b>Alfred</b><span>A hardened, memory-augmented AI assistant living on the edge - streaming chat, RAG knowledge, persistent memory, and battle-tested abuse defense. Zero servers.</span></a>
+    <a class="proj" href="https://github.com/tusharbeckham/euexia-react" target="_blank" rel="noopener"><b>Euexia</b><span>Most React health apps fake background tracking with Google Fit. Euexia doesn't. A custom Java foreground service reads the sensor directly. React + Vite + Capacitor frontend, Supabase sync, built solo from scratch.</span></a>
+    <a class="proj" href="https://github.com/tusharbeckham/solar-forecast" target="_blank" rel="noopener"><b>PhysSolar</b><span>Most solar forecasters throw raw ML at the weather. This one doesn't - a clear-sky physics model + plane-of-array transposition set the baseline, and ML learns only the residual. Beats clear-sky and persistence (0.85 / 0.69 skill) on real data. Python, scikit-learn, live Streamlit demo.</span></a>
     <div class="mlabel">Find me</div>
     <div class="social">
       <a href="https://github.com/tusharbeckham" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
@@ -336,7 +335,7 @@ abtn.addEventListener('click',openAbout);
 mx.addEventListener('click',closeAbout);
 ov.addEventListener('click',function(e){if(e.target===ov)closeAbout();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAbout();});
-(function(){var h=new Date().getHours(),g='Good evening.';if(h<12)g='Good morning.';else if(h<18)g='Good afternoon.';greet.textContent=g;})();
+(function(){var h=new Date().getHours(),g='Good evening';if(h<12)g='Good morning';else if(h<18)g='Good afternoon';greet.textContent=g;})();
 function render(el,txt){if(window.marked&&window.DOMPurify){try{el.innerHTML=DOMPurify.sanitize(marked.parse(txt||''));return;}catch(e){}}el.textContent=txt||'';}
 input.addEventListener('input',function(){input.style.height='auto';input.style.height=Math.min(input.scrollHeight,170)+'px';});
 input.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit();}});
@@ -361,7 +360,7 @@ async function stream(out){
       var lines=buf.split('\\n');buf=lines.pop();
       for(var k=0;k<lines.length;k++){var s=lines[k].trim();if(s.indexOf('data:')!==0)continue;var data=s.slice(5).trim();if(data==='[DONE]')continue;
         try{var j=JSON.parse(data);var dl=j.response||(j.choices&&j.choices[0]&&j.choices[0].delta&&j.choices[0].delta.content)||'';if(dl){acc+=dl;render(out,acc);main.scrollTop=main.scrollHeight;}}catch(e){}}}
-    if(!acc)out.textContent='(silence — try again)';
+    if(!acc)out.textContent='(silence, try again)';
     hist.push({role:'assistant',content:acc});
   }catch(e){out.textContent='That tripped a wire. Try again.';}
   done();
